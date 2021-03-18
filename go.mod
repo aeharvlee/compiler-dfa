@@ -1,3 +1,3 @@
-module github.com/aeharvlee/hardwired-dfa
+module github.com/aeharvlee/compiler-dfa
 
 go 1.15
