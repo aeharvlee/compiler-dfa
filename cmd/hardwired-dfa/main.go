@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/aeharvlee/hardwired-dfa/dfa/hard_wired"
+	"github.com/aeharvlee/compiler-dfa/dfa/hard_wired"
 )
 
 func readInput() string {

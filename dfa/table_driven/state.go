@@ -1,4 +1,4 @@
-package hard_wired
+package table_driven
 
 type State int
 

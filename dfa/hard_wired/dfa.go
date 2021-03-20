@@ -1,6 +1,10 @@
 package hard_wired
 
-import "github.com/aeharvlee/hardwired-dfa/dfa"
+import (
+	"fmt"
+
+	"github.com/aeharvlee/compiler-dfa/dfa"
+)
 
 type hardWiredDFA struct {
 }
@@ -21,22 +25,36 @@ func (d *hardWiredDFA) Recognize(input string) bool {
 			return false
 		}
 
+		var newState State
 		switch currentState {
 		case P:
 			if ch == '0' {
-				currentState = Q
+				newState = Q
 				break
 			}
 		case Q:
 			if ch == '0' {
-				currentState = R
+				newState = R
 				break
 			}
 			if ch == '1' {
-				currentState = P
+				newState = P
+				break
+			}
+		case R:
+			if ch == '0' {
+				newState = R
+				break
+			}
+			if ch == '1' {
+				newState = R
 				break
 			}
 		}
+
+		fmt.Printf("ch: %c | State Transition from %c to %c\n", ch, currentState.Char(), newState.Char())
+		currentState = newState
+
 		pos++
 	}
 
